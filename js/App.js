@@ -9,10 +9,10 @@
 import React from 'react';
 import {Text} from 'react-native';
 
-import AboutContainer from './screens/About';
+import RootStackNavigator from './navigation/RootStackNavigator';
 
 const App = () => {
-  return <AboutContainer />;
+  return <RootStackNavigator />;
 };
 
 export default App;

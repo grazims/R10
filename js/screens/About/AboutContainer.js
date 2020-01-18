@@ -6,3 +6,6 @@ const AboutContainer = () => {
 };
 
 export default AboutContainer;
+
+//create config file and add the graphicql endereço
+// config/js
