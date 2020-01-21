@@ -20,8 +20,12 @@ const AboutContainer = () => {
 
         return (
           <About
-            title="Hello"
-            desc="How are you doing today?!"
+            desc="R10 is a conference that focuses on just about any topic 
+            related to dev."
+            title="Date & Venue"
+            desc="The R10 conference will take place on Tuesday, June 27, 2017 
+            in Vancouver, BC"
+            title="Code of Conduct"
             data={data.allConducts}
           />
         );
