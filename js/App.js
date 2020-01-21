@@ -1,18 +1,16 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React from 'react';
 import {Text} from 'react-native';
+import {ApolloProvider} from 'react-apollo';
 
+import client from './config/api';
 import RootStackNavigator from './navigation/RootStackNavigator';
 
 const App = () => {
-  return <RootStackNavigator />;
+  return (
+    <ApolloProvider client={client}>
+      <RootStackNavigator />
+    </ApolloProvider>
+  );
 };
 
 export default App;
