@@ -9,7 +9,7 @@ const AboutContainer = () => {
   return (
     <Query query={GET_CONDUCT}>
       {({loading, data}) => {
-        console.log(loading, data);
+        //console.log(loading, data);
         if (loading || !data) {
           return (
             <View>
