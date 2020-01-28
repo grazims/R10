@@ -3,6 +3,7 @@ import {Text} from 'react-native';
 import MapView from 'react-native-maps';
 import {Marker} from 'react-native-maps';
 import {StyleSheet, Dimensions} from 'react-native';
+import Logo from '../../components/logo';
 
 const Map = () => {
   const region = {
@@ -14,6 +15,7 @@ const Map = () => {
 
   return (
     <MapView style={styles.mapStyle} initialRegion={region}>
+      <Logo />
       <Marker
         //   image={require('../../assets/map_pin.png')}
         coordinate={region}

@@ -16,7 +16,7 @@ const Schedule = ({startTime, title, location, data}) => {
   console.log(data);
   return (
     <View>
-      <Text>whatever</Text>
+      <Logo />
 
       <FlatList
         data={data}
