@@ -43,6 +43,8 @@ import {createBottomTabNavigator} from 'react-navigation-tabs';
 import AboutScreen from '../screens/About';
 import ScheduleScreen from '../screens/Schedule';
 import Map from '../screens/Map/Map';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 class About extends React.Component {
   render() {
@@ -61,12 +63,39 @@ class Maps extends React.Component {
   }
 }
 
-const TabNavigator = createBottomTabNavigator({
-  Schedule: ScheduleScreen,
-  Map: Map,
-  // Faves: FavesScreen,
-  About: AboutScreen,
-});
+const TabNavigator = createBottomTabNavigator(
+  {
+    Schedule: ScheduleScreen,
+    Map: Map,
+    // Faves: FavesScreen,
+    About: AboutScreen,
+  },
+  {
+    defaultNavigationOptions: ({navigation}) => ({
+      tabBarIcon: ({focused, horizontal, tintColor}) => {
+        const {routeName} = navigation.state;
+        let IconComponent = Ionicons;
+        let iconName;
+        if (routeName === 'About') {
+          return (
+            <Icon name="ios-information-circle" color={tintColor} size={25} />
+          );
+        } else if (routeName === 'Schedule') {
+          return <Icon name="ios-calendar" color={tintColor} size={25} />;
+        } else if (routeName === 'Map') {
+          return <Icon name="ios-map" color={tintColor} size={25} />;
+        }
+
+        // You can return any component that you like here!
+        // return <IconComponent name={iconName} size={25} color={tintColor} />;
+      },
+    }),
+    tabBarOptions: {
+      activeTintColor: 'tomato',
+      inactiveTintColor: 'gray',
+    },
+  },
+);
 
 //schedule,map, faves, about
 
