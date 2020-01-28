@@ -3,13 +3,13 @@ import {View, Text, FlatList} from 'react-native';
 import ConductItem from '../../components/ConductItem';
 import Logo from '../../components/logo';
 import styles from './styles';
-import {ScrollView} from 'react-native-gesture-handler';
+import globalStyles from '../globalStyles';
 
 const About = ({title, desc, data}) => {
   return (
-    <View style={styles.container}>
+    <View style={globalStyles.container}>
       <Logo />
-      <Text style={styles.font}>
+      <Text style={globalStyles.font}>
         R10 is a conference that focuses on just about any topic related to dev.
       </Text>
 
@@ -32,3 +32,4 @@ const About = ({title, desc, data}) => {
 export default About;
 
 //add animation on the + sign
+//add o titulo antes do logo

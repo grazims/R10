@@ -37,3 +37,14 @@ export default AsyncStorage;
 // A function that queries the database for all Fave objects
 // All of these methods should return the AsyncStorage Promise,
 // so you can await the result in your components
+
+// /**
+//  * 1. Get the list of all Session ids from API [1,2,3,4,5...] -- React Component
+//  * 2. Select session you like and push it to an array         -- React Component
+//  * 3. Save that array to AsyncStorage, through model          -- model
+//  *
+//  * key: ids / favIds / favs
+//  * - Add/Save/SetItem = key, value => AsyncStorage.setItem(key, value)
+//  * - Get/Queries/ = key = AsyncStorage.getItem(key)
+//  * - Remove
+//  */
