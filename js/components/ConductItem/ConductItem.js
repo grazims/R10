@@ -2,6 +2,8 @@
 
 import React, {Component} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
+import globalStyles from '../../screens/globalStyles';
+import styles from '../../screens/About/styles';
 
 class ConductItem extends Component {
   constructor(props) {
@@ -22,10 +24,12 @@ class ConductItem extends Component {
     return (
       <View>
         <TouchableOpacity onPress={this.toggleConduct}>
-          <Text>{item.title}</Text>
+          <Text style={styles.fontList}>{item.title}</Text>
         </TouchableOpacity>
 
-        {this.state.expanded && <Text>{item.description}</Text>}
+        {this.state.expanded && (
+          <Text style={globalStyles.h2}>{item.description}</Text>
+        )}
       </View>
     );
   }

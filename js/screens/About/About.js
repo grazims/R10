@@ -9,16 +9,16 @@ const About = ({title, desc, data}) => {
   return (
     <View style={globalStyles.container}>
       <Logo />
-      <Text style={globalStyles.font}>
+      <Text style={globalStyles.h2}>
         R10 is a conference that focuses on just about any topic related to dev.
       </Text>
 
-      <Text style={{fontWeight: 'bold', fontSize: 25}}>Date & Venue</Text>
-      <Text style={{fontSize: 20}}>
+      <Text style={globalStyles.title}>Date & Venue</Text>
+      <Text style={globalStyles.h2}>
         The R10 conference will take place on Tuesday, June 27, 2017 in
         Vancouver, BC
       </Text>
-      <Text style={{fontWeight: 'bold', fontSize: 25}}>Code of Conduct</Text>
+      <Text style={globalStyles.title}>Code of Conduct</Text>
 
       <FlatList
         data={data}
@@ -31,5 +31,7 @@ const About = ({title, desc, data}) => {
 
 export default About;
 
-//add animation on the + sign
+//add animation on the + sign e qdo abre o texto o
+//sinal muda pra -
 //add o titulo antes do logo
+//add safeareaview pra add style na lista

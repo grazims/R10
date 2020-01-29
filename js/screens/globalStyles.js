@@ -5,11 +5,18 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 24,
     backgroundColor: '#e9e5f5',
-    color: 'blue',
   },
-  font: {
+  h2: {
+    fontSize: 20,
+    fontFamily: 'Montserrat-Light',
+    lineHeight: 30,
+  },
+  title: {
+    fontSize: 30,
+    fontFamily: 'Montserrat-Regular',
     fontWeight: 'bold',
-    color: 'red',
+    paddingBottom: 10,
+    paddingTop: 10,
   },
 });
 

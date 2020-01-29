@@ -1,16 +1,12 @@
-// import {StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     padding: 24,
-//     backgroundColor: '#e9e5f5',
-//     color: 'blue',
-//   },
-//   font: {
-//     fontWeight: 'bold',
-//     color: 'red',
-//   },
-// });
+const styles = StyleSheet.create({
+  fontList: {
+    fontFamily: 'Montserrat-Regular',
+    fontSize: 20,
+    color: '#9963ea',
+    lineHeight: 45,
+  },
+});
 
-// export default styles;
+export default styles;
