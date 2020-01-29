@@ -35,3 +35,5 @@ export default About;
 //sinal muda pra -
 //add o titulo antes do logo
 //add safeareaview pra add style na lista
+
+//ADD FOOOOOOOTTTEEERR

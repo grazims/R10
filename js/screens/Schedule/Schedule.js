@@ -1,22 +1,22 @@
 import React from 'react';
-import {View, Text, FlatList, styles} from 'react-native';
-import ConductItem from '../../components/ConductItem';
+import {View, Text, FlatList, SectionList} from 'react-native';
 import Logo from '../../components/logo';
-//import styles from './typographyStyles';
+import globalStyles from '../globalStyles';
+import styles from './styles';
 
 const ScheduleItem = ({item}) => (
-  <Text>
-    {item.title}
-    {item.location}
-    {item.startTime}
-  </Text>
+  <View>
+    <Text style={styles.h2Date}>{item.startTime}</Text>
+    <Text style={styles.titleSche}>{item.title}</Text>
+    <Text style={styles.h2Loc}>{item.location}</Text>
+  </View>
 );
 
 const Schedule = ({startTime, title, location, data}) => {
-  console.log(data);
   return (
     <View>
       <Logo />
+      {/* //REMOVER O LOGO */}
 
       <FlatList
         data={data}
@@ -28,3 +28,4 @@ const Schedule = ({startTime, title, location, data}) => {
 };
 
 export default Schedule;
+//fazer uma session list
