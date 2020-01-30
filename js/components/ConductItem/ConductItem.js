@@ -24,7 +24,9 @@ class ConductItem extends Component {
     return (
       <View>
         <TouchableOpacity onPress={this.toggleConduct}>
-          <Text style={styles.fontList}>{item.title}</Text>
+          <Text style={styles.fontList}>
+            {this.state.expanded ? '-' : '+'} {item.title}
+          </Text>
         </TouchableOpacity>
 
         {this.state.expanded && (
