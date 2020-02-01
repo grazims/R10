@@ -1,3 +1,5 @@
-import Sessions from './sessions';
+import SessionContainer from './SessionContainer';
+import Session from './Session';
 
-export default Sessions;
+export {Session};
+export default SessionContainer;

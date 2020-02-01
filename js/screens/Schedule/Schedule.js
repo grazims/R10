@@ -1,8 +1,9 @@
 import React from 'react';
-import {View, Text, FlatList, SectionList} from 'react-native';
+import {View, Text, FlatList, SectionList, SafeAreaView} from 'react-native';
 import Logo from '../../components/logo';
 import globalStyles from '../globalStyles';
 import styles from './styles';
+import {ScrollView, TouchableOpacity} from 'react-native-gesture-handler';
 
 const ScheduleItem = ({item}) => (
   <View>

@@ -31,8 +31,6 @@ const About = ({title, desc, data}) => {
 
 export default About;
 
-//add animation on the + sign e qdo abre o texto o
-//sinal muda pra -
 //add o titulo antes do logo
 //add safeareaview pra add style na lista
 

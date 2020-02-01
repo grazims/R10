@@ -14,3 +14,11 @@ const GradientHeader = props => (
     <Header {...props} />
   </View>
 );
+
+export const sharedNavigationOptions = navigation => ({
+  headerBackTitle: null,
+  header: props => <GradientHeader {...props} />,
+  headerStyle: {
+    backgroundColor: 'transparent',
+  },
+});
