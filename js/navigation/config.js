@@ -13,7 +13,7 @@ const GradientHeader = props => (
       colors={['#cf392a', '#9963ea']}
       start={{x: 0.0, y: 1.0}}
       end={{x: 1.0, y: 0.0}}
-      style={[StyleSheet.absoluteFill, {height: 64, width: '100%'}]}
+      style={[StyleSheet.absoluteFill, {height: 94, width: '100%'}]}
     />
     <Header {...props} />
   </View>

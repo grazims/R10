@@ -39,7 +39,7 @@ const Schedule = ({startTime, title, location, data, navigation}) => {
   return (
     <View>
       <SectionList
-        style={styles.scheduleContainer}
+        // style={styles.scheduleContainer}
         sections={data.reduce(sessionGrouper, [])}
         renderItem={({item}) => (
           <ScheduleItem item={item} navigation={navigation} />
