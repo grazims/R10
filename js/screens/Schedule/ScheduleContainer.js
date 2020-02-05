@@ -28,6 +28,13 @@ const SESSIONS_INFO = gql`
       startTime
       title
       location
+      description
+      speaker {
+        name
+        image
+        id
+        bio
+      }
     }
   }
 `;

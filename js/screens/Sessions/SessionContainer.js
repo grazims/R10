@@ -5,50 +5,16 @@ import gql from 'graphql-tag';
 import {useQuery} from '@apollo/react-hooks';
 import globalStyles from '../globalStyles';
 import {View, Text} from 'react-native';
+import {withNavigation} from 'react-navigation';
 
-const SessionContainer = () => {
+const SessionContainer = ({navigation}) => {
+  let item = navigation.getParam('item');
   return (
     <View>
-      <Text style={globalStyles.h2}>grazi!!!</Text>
+      <Text style={globalStyles.h2}>{item.title}</Text>
+      <Text style={globalStyles.h2}>{item.description}</Text>
     </View>
   );
 };
 
-// const SessionContainer = () => {
-//   return (
-//     <Query query={SESSIONS_INFO}>
-//       {({loading, data}) => {
-//         //console.log(loading, data);
-//         if (loading || !data) {
-//           return (
-//             <View>
-//               <Text>Loading...</Text>
-//             </View>
-//           );
-//         }
-
-//         return <Session data={data.allSessions} />;
-//       }}
-//     </Query>
-//   );
-// };
-
-const SESSIONS_INFO = gql`
-  query {
-    allSessions {
-      id
-      startTime
-      title
-      location
-      description
-      speaker {
-        name
-        image
-        id
-        bio
-      }
-    }
-  }
-`;
-
-export default SessionContainer;
+export default withNavigation(SessionContainer);

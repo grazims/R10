@@ -22,5 +22,3 @@ const Session = ({location, title, startTime, data}) => {
 };
 
 export default Session;
-
-//add {timeFormatter}

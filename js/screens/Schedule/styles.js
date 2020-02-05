@@ -25,6 +25,9 @@ const styles = StyleSheet.create({
     lineHeight: 30,
     paddingBottom: 10,
   },
+  // scheduleContainer: {
+  //   paddingBottom: 35,
+  // },
 });
 
 export default styles;

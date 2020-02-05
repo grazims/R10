@@ -1,3 +1,3 @@
-import Map from './../Map';
+import MapScreen from './Map';
 
-export default Map;
+export default MapScreen;

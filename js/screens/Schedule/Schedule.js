@@ -1,9 +1,11 @@
 import React from 'react';
-import {View, Text, FlatList, SectionList, SafeAreaView} from 'react-native';
+import {View, Text, SectionList, SafeAreaView} from 'react-native';
 import Logo from '../../components/logo';
 import globalStyles from '../globalStyles';
 import styles from './styles';
 import {ScrollView, TouchableOpacity} from 'react-native-gesture-handler';
+import {withNavigation} from 'react-navigation';
+
 const timeFormatter = time =>
   new Date(time).toLocaleString('en-US', {hour: 'numeric', hour12: true});
 
@@ -26,23 +28,22 @@ const sessionGrouper = (headers, session) => {
   return headers;
 };
 
-const ScheduleItem = ({item}) => (
-  <View>
+const ScheduleItem = ({item, navigation}) => (
+  <TouchableOpacity onPress={() => navigation.navigate('Session', {item})}>
     <Text style={styles.titleSche}>{item.title}</Text>
     <Text style={styles.h2Loc}>{item.location}</Text>
-  </View>
+  </TouchableOpacity>
 );
 
-const Schedule = ({startTime, title, location, data}) => {
+const Schedule = ({startTime, title, location, data, navigation}) => {
   return (
     <View>
-      <Logo />
-      {/* //REMOVER O LOGO */}
-
       <SectionList
+        style={styles.scheduleContainer}
         sections={data.reduce(sessionGrouper, [])}
-        // data={data}
-        renderItem={({item}) => <ScheduleItem item={item} />}
+        renderItem={({item}) => (
+          <ScheduleItem item={item} navigation={navigation} />
+        )}
         keyExtractor={item => item.id}
         renderSectionHeader={({section: {title}}) => (
           <Text style={styles.h2Date}>{timeFormatter(title)}</Text>
@@ -52,8 +53,8 @@ const Schedule = ({startTime, title, location, data}) => {
   );
 };
 
-export default Schedule;
-//fazer uma session list
-//fazer uma lista com as sessoes diferentes como se fosse uma array
+export default withNavigation(Schedule);
 
 //lembrar de checar o fim da sessao. se vai até o final
+//checar o loading e por no centro
+//lembrar de por o footer

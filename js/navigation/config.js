@@ -3,6 +3,10 @@ import {StyleSheet, View} from 'react-native';
 import {Header} from 'react-navigation-stack';
 import LinearGradient from 'react-native-linear-gradient';
 
+import {colors, typography} from '../config/styles';
+
+const {mediumGrey, purple, red, white} = colors;
+
 const GradientHeader = props => (
   <View style={{backgroundColor: 'white', overflow: 'hidden'}}>
     <LinearGradient
@@ -20,5 +24,10 @@ export const sharedNavigationOptions = navigation => ({
   header: props => <GradientHeader {...props} />,
   headerStyle: {
     backgroundColor: 'transparent',
+  },
+  headerTintColor: white,
+  headerTintStyle: {
+    color: white,
+    fontFamily: typography.fontMain,
   },
 });
