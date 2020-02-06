@@ -9,6 +9,7 @@ import {withNavigation} from 'react-navigation';
 import styles from '../Schedule/styles';
 import sessionStyles from './sessionStyles';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import Footer from '../../components/footer';
 
 const timeFormatter = time =>
   new Date(time).toLocaleString('en-US', {hour: 'numeric', hour12: true});
@@ -32,7 +33,6 @@ const sessionGrouper = (headers, session, item) => {
 
 const SessionContainer = ({navigation}) => {
   let item = navigation.getParam('item');
-  //let speaker = navigation.getParam('speaker');
   return (
     <View style={globalStyles.container}>
       <TouchableOpacity>
@@ -45,6 +45,7 @@ const SessionContainer = ({navigation}) => {
         <Text style={sessionStyles.h2}>Presented by:</Text>
         <Text style={sessionStyles.h3}>{item.speaker.name}</Text>
       </TouchableOpacity>
+      <Footer />
     </View>
   );
 };
