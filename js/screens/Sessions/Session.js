@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text} from 'react-native';
 import Logo from '../../components/logo';
 import globalStyles from '../globalStyles';
-import styles from './styles';
+import styles from './sessionStyles';
 
 // const Session = () => {
 //   return <Text>hello</Text>;

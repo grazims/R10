@@ -32,7 +32,7 @@ const ScheduleStack = createStackNavigator(
 );
 const MapStack = createStackNavigator(
   {
-    Map: Map,
+    Map: MapScreen,
   },
   {
     defaultNavigationOptions: ({navigation}) => ({
