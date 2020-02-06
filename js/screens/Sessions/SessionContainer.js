@@ -1,56 +1,28 @@
 import React from 'react';
 import Session from './Session';
-import {Query} from 'react-apollo';
-import gql from 'graphql-tag';
-import {useQuery} from '@apollo/react-hooks';
-import globalStyles from '../globalStyles';
-import {View, Text, SectionList} from 'react-native';
 import {withNavigation} from 'react-navigation';
-import styles from '../Schedule/styles';
-import sessionStyles from './sessionStyles';
-import {TouchableOpacity} from 'react-native-gesture-handler';
-import Footer from '../../components/footer';
-
-const timeFormatter = time =>
-  new Date(time).toLocaleString('en-US', {hour: 'numeric', hour12: true});
-
-const sessionGrouper = (headers, session, item) => {
-  const sectionIndex = headers.findIndex(({title}) => title === item.startTime);
-
-  if (sectionIndex === -1)
-    return [
-      ...headers,
-      {
-        title: item.startTime,
-        data: [item],
-      },
-    ];
-
-  headers[sectionIndex].data.push(item);
-
-  return headers;
-};
+import FavesContext from '../../components/context/FavesContext';
 
 const SessionContainer = ({navigation}) => {
   let item = navigation.getParam('item');
   return (
-    <View style={globalStyles.container}>
-      <TouchableOpacity>
-        <Text style={styles.h2Loc}>{item.location}</Text>
-        <Text style={styles.titleSche}>{item.title}</Text>
-        <Text style={sessionStyles.h3Date}>
-          {timeFormatter(item.startTime)}
-        </Text>
-        <Text style={globalStyles.h2}>{item.description}</Text>
-        <Text style={sessionStyles.h2}>Presented by:</Text>
-        <Text style={sessionStyles.h3}>{item.speaker.name}</Text>
-      </TouchableOpacity>
-      <Footer />
-    </View>
+    <FavesContext.Consumer>
+      {({faveIds, addFaveSession, removeFaveSession}) => {
+        console.log('hello');
+        console.log(faveIds);
+        return (
+          <Session
+            item={item}
+            addFaveSession={addFaveSession}
+            removeFaveSession={removeFaveSession}
+            faveIds={faveIds}
+          />
+        );
+      }}
+    </FavesContext.Consumer>
   );
 };
 
 export default withNavigation(SessionContainer);
 
-//add timeformater
 //add a foto e botao "remove from faves"

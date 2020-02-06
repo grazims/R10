@@ -1,50 +1,46 @@
 import AsyncStorage from '@react-native-community/async-storage';
 
-storeData = async (key, value) => {
+const faveKey = 'favourite';
+
+const storeFave = async sessionId => {
   try {
-    const stringValue = JSON.stringify(value);
-    await AsyncStorage.setItem(key, stringValue);
+    let existingIds = JSON.parse(await AsyncStorage.getItem(faveKey)) || [];
+    if (existingIds.indexOf(sessionId) === -1) {
+      existingIds.push(sessionId);
+    }
+
+    await AsyncStorage.setItem(faveKey, JSON.stringify(existingIds));
+
+    let result = await AsyncStorage.getItem(faveKey);
+    return result;
   } catch (e) {
     // saving error
   }
 };
 
-getData = async key => {
+const getFaves = async () => {
   try {
-    const value = await AsyncStorage.getItem(key);
-    if (value !== null) {
-      // value previously stored
-    }
+    const value = await AsyncStorage.getItem(faveKey);
+    return JSON.parse(value);
   } catch (e) {
     // error reading value
   }
 };
 
-export default AsyncStorage;
+const removeFave = async sessionId => {
+  try {
+    let existingIds = JSON.parse(await AsyncStorage.getItem(faveKey)) || [];
 
-// import model from 'models'
+    let newIds = existingIds.filter(id => {
+      return id !== sessionId;
+    });
 
-// ids = [1,3,4]
-// 'ids': []
-// 'names': []
-// 'cities': []
+    await AsyncStorage.setItem(faveKey, JSON.stringify(newIds));
+    let result = await AsyncStorage.getItem(faveKey);
+    return result;
+  } catch (e) {
+    // saving error
+  }
+};
 
-// model.storeData('ids', ids)
-// model.getData('names')
-
-// A function that adds a Fave object to the database
-// A function that removes a Fave object from the database
-// A function that queries the database for all Fave objects
-// All of these methods should return the AsyncStorage Promise,
-// so you can await the result in your components
-
-// /**
-//  * 1. Get the list of all Session ids from API [1,2,3,4,5...] -- React Component
-//  * 2. Select session you like and push it to an array         -- React Component
-//  * 3. Save that array to AsyncStorage, through model          -- model
-//  *
-//  * key: ids / favIds / favs
-//  * - Add/Save/SetItem = key, value => AsyncStorage.setItem(key, value)
-//  * - Get/Queries/ = key = AsyncStorage.getItem(key)
-//  * - Remove
-//  */
+export {storeFave, getFaves, removeFave};

@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text} from 'react-native';
 import {ApolloProvider} from 'react-apollo';
+import {FavesProvider} from './components/context/FavesContext';
 
 import client from './config/api';
 import RootStackNavigator from './navigation/RootStackNavigator';
@@ -8,7 +9,9 @@ import RootStackNavigator from './navigation/RootStackNavigator';
 const App = () => {
   return (
     <ApolloProvider client={client}>
-      <RootStackNavigator />
+      <FavesProvider>
+        <RootStackNavigator />
+      </FavesProvider>
     </ApolloProvider>
   );
 };
