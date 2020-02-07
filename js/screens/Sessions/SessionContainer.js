@@ -15,7 +15,7 @@ const SessionContainer = ({navigation}) => {
             item={item}
             addFaveSession={addFaveSession}
             removeFaveSession={removeFaveSession}
-            faveIds={faveIds}
+            faveIds={faveIds || []}
           />
         );
       }}
