@@ -8,8 +8,8 @@ const SessionContainer = ({navigation}) => {
   return (
     <FavesContext.Consumer>
       {({faveIds, addFaveSession, removeFaveSession}) => {
-        console.log('hello');
-        console.log(faveIds);
+        // console.log('hello');
+        //console.log(faveIds);
         return (
           <Session
             item={item}

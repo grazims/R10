@@ -17,7 +17,7 @@ const Map = () => {
     <MapView style={styles.mapStyle} initialRegion={region}>
       <Logo />
       <Marker
-        //   image={require('../../assets/map_pin.png')}
+        //image={require('../../assets/map_pin.png')}
         coordinate={region}
         title="hey"
         description={'this is RED'}

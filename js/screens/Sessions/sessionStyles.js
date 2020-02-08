@@ -19,6 +19,14 @@ const sessionStyles = StyleSheet.create({
     fontSize: 20,
     padding: 15,
   },
+  btn: {
+    color: 'purple',
+    borderBottomWidth: 4,
+    backgroundColor: 'blue',
+    color: 'black',
+    borderLeftWidth: 2,
+    width: '75%',
+  },
 });
 
 export default sessionStyles;
