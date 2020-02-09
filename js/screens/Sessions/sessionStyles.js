@@ -34,15 +34,14 @@ const sessionStyles = StyleSheet.create({
     padding: 15,
   },
   background: {
-    backgroundColor: 'purple',
+    backgroundColor: '#000',
     flex: 1,
     paddingTop: 30,
   },
   modal: {
-    backgroundColor: 'pink',
+    backgroundColor: '#fff',
     paddingHorizontal: 20,
     marginTop: 30,
-    // alignItems: 'fle',
     marginHorizontal: 15,
     borderRadius: 10,
     paddingVertical: 40,
@@ -63,10 +62,6 @@ const sessionStyles = StyleSheet.create({
   },
   container: {
     flexDirection: 'row',
-    paddingTop: 30,
-    // alignContent: 'space-around',
-    // display: 'flex',
-    // paddingVertical: 20,
   },
 });
 
