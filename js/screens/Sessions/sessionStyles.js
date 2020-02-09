@@ -36,22 +36,37 @@ const sessionStyles = StyleSheet.create({
   background: {
     backgroundColor: 'purple',
     flex: 1,
+    paddingTop: 30,
   },
   modal: {
     backgroundColor: 'pink',
     paddingHorizontal: 20,
     marginTop: 30,
-    alignItems: 'center',
+    // alignItems: 'fle',
     marginHorizontal: 15,
     borderRadius: 10,
     paddingVertical: 40,
   },
   title: {
     fontSize: 20,
+    fontFamily: 'Montserrat-Regular',
+    color: '#fff',
+    paddingVertical: 40,
+  },
+  btnclose: {
+    fontSize: 20,
+    fontFamily: 'Montserrat-Regular',
+    color: '#fff',
+    paddingRight: 70,
+    paddingLeft: 15,
+    paddingVertical: 40,
   },
   container: {
     flexDirection: 'row',
-    alignContent: 'space-around',
+    paddingTop: 30,
+    // alignContent: 'space-around',
+    // display: 'flex',
+    // paddingVertical: 20,
   },
 });
 
