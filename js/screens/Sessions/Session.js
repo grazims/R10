@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, Button, Image, Linking} from 'react-native';
+import {View, Text, Button, Image, Linking, SafeAreaView} from 'react-native';
 import styles from '../Schedule/styles';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import globalStyles from '../globalStyles';
@@ -10,7 +10,9 @@ import ModalScreen from '../../components/Modal';
 //TIME FORMATER
 const timeFormatter = time =>
   new Date(time).toLocaleString('en-US', {hour: 'numeric', hour12: true});
-
+const Section = ({children, ...props}) => (
+  <SafeAreaView {...props}>{children}</SafeAreaView>
+);
 //INICIO CONST
 const Session = ({
   navigation,
@@ -47,11 +49,18 @@ const Session = ({
       </TouchableOpacity>
       <ModalScreen open={openModal} onClose={closeModal}>
         <Image
-          style={{width: 120, height: 120, borderRadius: 70}}
+          style={{
+            width: 120,
+            height: 120,
+            borderRadius: 70,
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            marginVertical: 20,
+          }}
           source={{uri: item.speaker.image}}
         />
-        <Text style={sessionStyles.h3}>{item.speaker.name}</Text>
-        <Text style={sessionStyles.h3}>{item.speaker.bio}</Text>
+        <Text style={sessionStyles.speaker}>{item.speaker.name}</Text>
+        <Text style={globalStyles.h2}>{item.speaker.bio}</Text>
         <View>
           <LinearGradient
             colors={['#9963ea', '#8797D6']}
@@ -65,15 +74,10 @@ const Session = ({
         </View>
       </ModalScreen>
 
-      {/* <TouchableOpacity style={sessionStyles.h3} onPress={toggleModal}>
-   
-      </TouchableOpacity> */}
-
       <Button
         style={sessionStyles.btn}
         title={buttonTitle}
         onPress={() => {
-          //console.log('clicked');
           if (isFave) {
             removeFaveSession(item.id);
           } else {

@@ -27,6 +27,32 @@ const sessionStyles = StyleSheet.create({
     borderLeftWidth: 2,
     width: '75%',
   },
+  speaker: {
+    fontFamily: 'Montserrat-Regular',
+    fontSize: 30,
+    textAlign: 'center',
+    padding: 15,
+  },
+  background: {
+    backgroundColor: 'purple',
+    flex: 1,
+  },
+  modal: {
+    backgroundColor: 'pink',
+    paddingHorizontal: 20,
+    marginTop: 30,
+    alignItems: 'center',
+    marginHorizontal: 15,
+    borderRadius: 10,
+    paddingVertical: 40,
+  },
+  title: {
+    fontSize: 20,
+  },
+  container: {
+    flexDirection: 'row',
+    alignContent: 'space-around',
+  },
 });
 
 export default sessionStyles;
