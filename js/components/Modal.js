@@ -1,13 +1,29 @@
 import React from 'react';
-import {View, Text, Button, Image} from 'react-native';
+import {
+  Modal as NativeModal,
+  Text,
+  TouchableOpacity,
+  View,
+  Image,
+} from 'react-native';
+//import Section from './Section';
+//import Heading from './Heading';
+//import globalStyles from '../assets/styles/styles';
+import {ScrollView} from 'react-native-gesture-handler';
 
-function ModalScreen({children, open = false, onClose, ...props}) {
-  return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text style={{fontSize: 30}}>This is a modal!</Text>
-      <Button onPress={() => navigation.goBack()} title="Dismiss" />
-    </View>
-  );
-}
+const Modal = ({children, open = false, onClose}) => (
+  <NativeModal animationType="slide" transparent={false} visible={open}>
+    {/* <Section style={globalStyles.modalContainer}> */}
+    <TouchableOpacity onPress={onClose}>
+      <Text style={{padding: 40}}>x</Text>
+      <Text style={{padding: 30}}>About the Speaker</Text>
+    </TouchableOpacity>
+    <ScrollView>
+      {children}
+      {/* <Section style={globalStyles.modal}>{children}</Section> */}
+    </ScrollView>
+    {/* </Section> */}
+  </NativeModal>
+);
 
-export default ModalScreen;
+export default Modal;

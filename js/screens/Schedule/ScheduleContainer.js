@@ -34,6 +34,7 @@ const SESSIONS_INFO = gql`
         image
         id
         bio
+        url
       }
     }
   }
