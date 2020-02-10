@@ -20,12 +20,9 @@ const sessionStyles = StyleSheet.create({
     padding: 15,
   },
   btn: {
-    color: 'purple',
-    borderBottomWidth: 4,
-    backgroundColor: 'blue',
-    color: 'black',
-    borderLeftWidth: 2,
-    width: '75%',
+    padding: 20,
+    borderRadius: 40,
+    marginTop: 30,
   },
   speaker: {
     fontFamily: 'Montserrat-Regular',
@@ -62,6 +59,20 @@ const sessionStyles = StyleSheet.create({
   },
   container: {
     flexDirection: 'row',
+  },
+  favoriteBtn: {
+    marginTop: 20,
+    paddingVertical: 15,
+    paddingHorizontal: 25,
+    alignItems: 'center',
+    //color: '#fff',
+    borderRadius: 50,
+    marginBottom: 60,
+  },
+  btnText: {
+    color: '#fff',
+    fontSize: 18,
+    fontFamily: 'Montserrat-Regular',
   },
 });
 

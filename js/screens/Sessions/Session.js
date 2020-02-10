@@ -61,30 +61,38 @@ const Session = ({
         />
         <Text style={sessionStyles.speaker}>{item.speaker.name}</Text>
         <Text style={globalStyles.h2}>{item.speaker.bio}</Text>
-        <View>
+        <Section style={sessionStyles.favoriteBtn}>
           <LinearGradient
             colors={['#9963ea', '#8797D6']}
             start={{x: 0.0, y: 1.0}}
             end={{x: 1.0, y: 0.0}}
-            style={styles.button}>
-            {/* <TouchableOpacity onPress={() => Linking.openURL(item.speaker.url)}>
-              <Text>Read More on Wikipedia</Text>
-            </TouchableOpacity> */}
+            style={sessionStyles.btn}>
+            <TouchableOpacity onPress={() => Linking.openURL(item.speaker.url)}>
+              <Text style={sessionStyles.btnText}>Read More on Wikipedia</Text>
+            </TouchableOpacity>
           </LinearGradient>
-        </View>
+        </Section>
       </ModalScreen>
 
-      <Button
+      <LinearGradient
+        colors={['#9963ea', '#8797D6']}
+        start={{x: 0.0, y: 1.0}}
+        end={{x: 1.0, y: 0.0}}
         style={sessionStyles.btn}
-        title={buttonTitle}
-        onPress={() => {
-          if (isFave) {
-            removeFaveSession(item.id);
-          } else {
-            addFaveSession(item.id);
-          }
-        }}
-      />
+        // style={{borderRadius: 50}}
+      >
+        <Button
+          title={buttonTitle}
+          style={sessionStyles.btnText}
+          onPress={() => {
+            if (isFave) {
+              removeFaveSession(item.id);
+            } else {
+              addFaveSession(item.id);
+            }
+          }}
+        />
+      </LinearGradient>
     </View>
   );
 };
