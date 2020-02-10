@@ -3,8 +3,6 @@ import {
   Modal as NativeModal,
   Text,
   TouchableOpacity,
-  View,
-  Image,
   SafeAreaView,
 } from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';

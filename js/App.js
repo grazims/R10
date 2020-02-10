@@ -1,5 +1,4 @@
 import React from 'react';
-import {Text} from 'react-native';
 import {ApolloProvider} from 'react-apollo';
 import {FavesProvider} from './components/context/FavesContext';
 

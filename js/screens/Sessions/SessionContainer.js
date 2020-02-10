@@ -8,8 +8,6 @@ const SessionContainer = ({navigation}) => {
   return (
     <FavesContext.Consumer>
       {({faveIds, addFaveSession, removeFaveSession}) => {
-        // console.log('hello');
-        //console.log(faveIds);
         return (
           <Session
             item={item}
@@ -24,5 +22,3 @@ const SessionContainer = ({navigation}) => {
 };
 
 export default withNavigation(SessionContainer);
-
-//add a foto e botao "remove from faves"

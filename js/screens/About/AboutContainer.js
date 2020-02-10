@@ -17,15 +17,7 @@ const AboutContainer = () => {
           );
         }
 
-        return (
-          <About
-            // title="Date & Venue"
-            // desc="The R10 conference will take place on Tuesday, June 27, 2017
-            // in Vancouver, BC"
-            // title="Code of Conduct"
-            data={data.allConducts}
-          />
-        );
+        return <About data={data.allConducts} />;
       }}
     </Query>
   );
@@ -42,6 +34,3 @@ const GET_CONDUCT = gql`
 `;
 
 export default AboutContainer;
-
-//create config file and add the graphicql endereço
-// config/js

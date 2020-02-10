@@ -1,5 +1,4 @@
 import React from 'react';
-import {Component} from 'react';
 import footerStyles from './footerStyles';
 import {View, Text} from 'react-native';
 

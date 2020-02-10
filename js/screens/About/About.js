@@ -2,7 +2,6 @@ import React from 'react';
 import {View, Text, FlatList, ScrollView} from 'react-native';
 import ConductItem from '../../components/ConductItem';
 import Logo from '../../components/logo';
-import styles from './styles';
 import globalStyles from '../globalStyles';
 import Footer from '../../components/Footer';
 
@@ -35,8 +34,3 @@ const About = ({title, desc, data}) => {
 };
 
 export default About;
-
-//add o titulo antes do logo
-//add safeareaview pra add style na lista
-
-//ADD FOOOOOOOTTTEEERR

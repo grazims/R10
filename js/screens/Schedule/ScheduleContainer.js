@@ -41,5 +41,3 @@ const SESSIONS_INFO = gql`
 `;
 
 export default ScheduleContainer;
-
-//add a onpress and props to navegar na outra page
