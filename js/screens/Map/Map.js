@@ -14,10 +14,9 @@ const Map = () => {
   return (
     <MapView style={styles.mapStyle} initialRegion={region}>
       <Marker
-        //image={require('../../assets/map_pin.png')}
+        image={require('../../assets/map_pin.png')}
         coordinate={region}
-        title="hey"
-        description={'this is RED'}
+        title="RED Academy"
       />
     </MapView>
   );
