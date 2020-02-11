@@ -20,6 +20,9 @@ const About = ({title, desc, data}) => {
           The R10 conference will take place on Tuesday, June 27, 2017 in
           Vancouver, BC
         </Text>
+      </View>
+
+      <View style={globalStyles.container}>
         <Text style={globalStyles.title}>Code of Conduct</Text>
 
         <FlatList
