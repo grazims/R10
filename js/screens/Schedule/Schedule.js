@@ -1,6 +1,5 @@
 import React from 'react';
-import {View, Text, SectionList, SafeAreaView} from 'react-native';
-import globalStyles from '../globalStyles';
+import {View, Text, SectionList} from 'react-native';
 import styles from './styles';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {withNavigation} from 'react-navigation';
@@ -34,20 +33,10 @@ const ScheduleItem = ({item, navigation}) => (
   </TouchableOpacity>
 );
 
-const Schedule = ({
-  startTime,
-  title,
-  location,
-  data,
-  navigation,
-  addFaveSession,
-  removeFaveSession,
-  faveIds,
-}) => {
+const Schedule = ({data, navigation}) => {
   return (
     <View>
       <SectionList
-        // style={styles.scheduleContainer}
         sections={data.reduce(sessionGrouper, [])}
         renderItem={({item}) => (
           <ScheduleItem item={item} navigation={navigation} />
