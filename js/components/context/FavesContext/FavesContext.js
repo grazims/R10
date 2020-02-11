@@ -55,5 +55,5 @@ class FavesProvider extends Component {
   // more code will go here!
 }
 
-export {FavesProvider};
 export default FavesContext;
+export {FavesProvider};

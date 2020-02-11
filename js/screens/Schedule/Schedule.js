@@ -1,9 +1,8 @@
 import React from 'react';
 import {View, Text, SectionList, SafeAreaView} from 'react-native';
-import Logo from '../../components/logo';
 import globalStyles from '../globalStyles';
 import styles from './styles';
-import {ScrollView, TouchableOpacity} from 'react-native-gesture-handler';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 import {withNavigation} from 'react-navigation';
 
 const timeFormatter = time =>
@@ -35,7 +34,16 @@ const ScheduleItem = ({item, navigation}) => (
   </TouchableOpacity>
 );
 
-const Schedule = ({startTime, title, location, data, navigation}) => {
+const Schedule = ({
+  startTime,
+  title,
+  location,
+  data,
+  navigation,
+  addFaveSession,
+  removeFaveSession,
+  faveIds,
+}) => {
   return (
     <View>
       <SectionList
@@ -54,7 +62,3 @@ const Schedule = ({startTime, title, location, data, navigation}) => {
 };
 
 export default withNavigation(Schedule);
-
-//lembrar de checar o fim da sessao. se vai até o final
-//checar o loading e por no centro
-//lembrar de por o footer

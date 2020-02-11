@@ -1,47 +1,65 @@
-import React from 'react';
-import {View, Text} from 'react-native';
+// import React from 'react';
+// import {View, Text} from 'react-native';
 
-const Faves = () => {
+// const Faves = () => {
+//   return (
+//     <View>
+//       <Text>RED Academy 2020</Text>
+//     </View>
+//   );
+// };
+// export default Faves;
+
+import React from 'react';
+import {View, Text, SectionList, SafeAreaView} from 'react-native';
+import globalStyles from '../globalStyles';
+//import styles from './styles';
+import {ScrollView, TouchableOpacity} from 'react-native-gesture-handler';
+import {withNavigation} from 'react-navigation';
+import FavesContext from '../../components/context/FavesContext/FavesContext';
+
+const timeFormatter = time =>
+  new Date(time).toLocaleString('en-US', {hour: 'numeric', hour12: true});
+
+const sessionGrouper = (headers, session) => {
+  const sectionIndex = headers.findIndex(
+    ({title}) => title === session.startTime,
+  );
+
+  if (sectionIndex === -1)
+    return [
+      ...headers,
+      {
+        title: session.startTime,
+        data: [session],
+      },
+    ];
+
+  headers[sectionIndex].data.push(session);
+
+  return headers;
+};
+
+const Faves = ({data, navigation}) => {
+  //   const [favorites] = FavesContext();
   return (
     <View>
-      <Text>RED Academy 2020</Text>
+      <SectionList
+        sections={data.reduce(sessionGrouper, [])}
+        keyExtractor={({id}) => id}
+        renderItem={({item: {id, title, location}}, i) => (
+          <View>
+            <TouchableOpacity onPress={() => navigation.push('Session', {id})}>
+              <Text>{title}</Text>
+            </TouchableOpacity>
+            <View>
+              <Text>{location}</Text>
+            </View>
+          </View>
+        )}
+      />
     </View>
   );
 };
 
-export default Faves;
-
-// import React, {useContext} from 'react';
-// //import {useSessions} from '../hooks'
-// import {FavoritesContext} from '../../components/context/FavesContext';
-// //import {groupEventsByTime} from '../utils'
-// //import {Layout, SectionList, Spinner} from '../components'
-
-// const Faves = ({navigation, ...props}) => {
-//   const {favorites} = useContext(FavoritesContext);
-//   const {sessions, loading, error} = useSessions();
-
-//   //if (loading) return <Spinner />
-//   return (
-//     <Layout {...props}>
-//       <SectionList
-//         loading={loading}
-//         error={error}
-//         sections={sessions
-//           .filter(({id}) => favorites.includes(id))
-//           .reduce(groupEventsByTime, [])}
-//         renderItem={({item: {id, title, location}}, i) => (
-//           <SectionList.Item
-//             id={id}
-//             index={i}
-//             onPress={() => navigation.push('Session', {id})}
-//             subtitle={location}>
-//             {title}
-//           </SectionList.Item>
-//         )}
-//       />
-//     </Layout>
-//   );
-// };
-
-// export default Faves;
+export default withNavigation(Faves);
