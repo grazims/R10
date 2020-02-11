@@ -7,13 +7,11 @@ import sessionStyles from './sessionStyles';
 import LinearGradient from 'react-native-linear-gradient';
 import ModalScreen from '../../components/Modal';
 
-//TIME FORMATER
 const timeFormatter = time =>
   new Date(time).toLocaleString('en-US', {hour: 'numeric', hour12: true});
 const Section = ({children, ...props}) => (
   <SafeAreaView {...props}>{children}</SafeAreaView>
 );
-//INICIO CONST
 const Session = ({
   navigation,
   item,
@@ -27,10 +25,8 @@ const Session = ({
 
   const toggleModal = () => setOpenModal(!openModal);
 
-  //CONST FAVORITOS
   const isFave = faveIds.indexOf(item.id) !== -1;
   const buttonTitle = isFave ? 'Remove from Faves' : 'Add to Faves';
-  //TEXTO VISUAL
   return (
     <View style={globalStyles.container}>
       <Text style={styles.h2Loc}>{item.location}</Text>
@@ -39,26 +35,17 @@ const Session = ({
       <Text style={globalStyles.h2}>{item.description}</Text>
       <Text style={sessionStyles.h2}>Presented by:</Text>
 
-      {/* // -> FOTO COM OPCAO DE CLIQUE */}
-
-      <TouchableOpacity onPress={toggleModal}>
+      <TouchableOpacity
+        onPress={toggleModal}
+        style={sessionStyles.sessionContainer}>
         <Image
-          style={{width: 120, height: 120, borderRadius: 70}}
+          style={sessionStyles.sessionImage}
           source={{uri: item.speaker.image}}
         />
+        <Text style={sessionStyles.spkrName}>{item.speaker.name}</Text>
       </TouchableOpacity>
       <ModalScreen open={openModal} onClose={closeModal}>
-        <Image
-          style={{
-            width: 120,
-            height: 120,
-            borderRadius: 70,
-            marginLeft: 'auto',
-            marginRight: 'auto',
-            marginVertical: 20,
-          }}
-          source={{uri: item.speaker.image}}
-        />
+        <Image style={sessionStyles.image} source={{uri: item.speaker.image}} />
         <Text style={sessionStyles.speaker}>{item.speaker.name}</Text>
         <Text style={globalStyles.h2}>{item.speaker.bio}</Text>
         <Section style={sessionStyles.favoriteBtn}>
@@ -78,9 +65,7 @@ const Session = ({
         colors={['#9963ea', '#8797D6']}
         start={{x: 0.0, y: 1.0}}
         end={{x: 1.0, y: 0.0}}
-        style={sessionStyles.btn}
-        // style={{borderRadius: 50}}
-      >
+        style={sessionStyles.btn}>
         <Button
           title={buttonTitle}
           style={sessionStyles.btnText}

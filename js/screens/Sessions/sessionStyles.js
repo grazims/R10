@@ -74,6 +74,31 @@ const sessionStyles = StyleSheet.create({
     fontSize: 18,
     fontFamily: 'Montserrat-Regular',
   },
+  image: {
+    width: 120,
+    height: 120,
+    borderRadius: 70,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    marginVertical: 20,
+  },
+  spkrName: {
+    justifyContent: 'flex-start',
+    paddingTop: 60,
+    paddingLeft: 5,
+    fontSize: 20,
+    fontFamily: 'Montserrat-Regular',
+  },
+  sessionContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  sessionImage: {
+    width: 120,
+    height: 120,
+    borderRadius: 70,
+    margin: 15,
+  },
 });
 
 export default sessionStyles;
