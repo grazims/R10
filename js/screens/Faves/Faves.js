@@ -1,22 +1,8 @@
-// import React from 'react';
-// import {View, Text} from 'react-native';
-
-// const Faves = () => {
-//   return (
-//     <View>
-//       <Text>RED Academy 2020</Text>
-//     </View>
-//   );
-// };
-// export default Faves;
-
 import React from 'react';
-import {View, Text, SectionList, SafeAreaView} from 'react-native';
-import globalStyles from '../globalStyles';
-//import styles from './styles';
-import {ScrollView, TouchableOpacity} from 'react-native-gesture-handler';
+import {View, Text, SectionList} from 'react-native';
+import styles from '../Schedule/styles';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 import {withNavigation} from 'react-navigation';
-import FavesContext from '../../components/context/FavesContext/FavesContext';
 
 const timeFormatter = time =>
   new Date(time).toLocaleString('en-US', {hour: 'numeric', hour12: true});
@@ -40,8 +26,41 @@ const sessionGrouper = (headers, session) => {
   return headers;
 };
 
-const Faves = ({data, navigation}) => {
-  //   const [favorites] = FavesContext();
+const SessionList = ({faveIds, data, navigation}) => {
+  return (
+    <View>
+      <SectionList
+        sections={formatSessionData(data)}
+        renderItem={({item}) => (
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Session', {item})}>
+            <View style={styles.sessionContainer}>
+              <Text style={styles.titleSession}>{item.title}</Text>
+              <View style={styles.iconContainer}>
+                <Text style={styles.locationSession}>{item.location}</Text>
+                {faveIds.indexOf(item.id) !== -1 && (
+                  <Icon
+                    name={Platform.OS === 'ios' ? 'ios-heart' : 'md-heart'}
+                    size={22}
+                    color={style.red.color}
+                  />
+                )}
+              </View>
+            </View>
+          </TouchableOpacity>
+        )}
+        renderSectionHeader={({section}) => (
+          <Text style={styles.sectionHeader}>
+            {moment(section.title).format('LT')}
+          </Text>
+        )}
+        keyExtractor={(item, index) => index}
+      />
+    </View>
+  );
+};
+
+const Faves = ({data}) => {
   return (
     <View>
       <SectionList
@@ -50,12 +69,16 @@ const Faves = ({data, navigation}) => {
         renderItem={({item: {id, title, location}}, i) => (
           <View>
             <TouchableOpacity onPress={() => navigation.push('Session', {id})}>
-              <Text>{title}</Text>
+              <Text style={styles.titleSche}>{title}</Text>
             </TouchableOpacity>
             <View>
-              <Text>{location}</Text>
+              <Text style={styles.h2Loc}>{location}</Text>
             </View>
           </View>
+        )}
+        keyExtractor={item => item.id}
+        renderSectionHeader={({section: {title}}) => (
+          <Text style={styles.h2Date}>{timeFormatter(title)}</Text>
         )}
       />
     </View>
