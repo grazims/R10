@@ -1,9 +1,11 @@
 import React from 'react';
-import {View, Text, SectionList} from 'react-native';
+import {View, Text, SectionList, Button} from 'react-native';
 import styles from '../Schedule/styles';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {withNavigation} from 'react-navigation';
-import FavoriteBtn from '../../components/FavoriteBtn';
+import FavoriteIcon from '../../components/FavoriteIcon';
+import LinearGradient from 'react-native-linear-gradient';
+import sessionStyles from '../Sessions/sessionStyles';
 
 const timeFormatter = time =>
   new Date(time).toLocaleString('en-US', {hour: 'numeric', hour12: true});
@@ -40,7 +42,7 @@ const Faves = ({data}) => {
             </TouchableOpacity>
             <View>
               <Text style={styles.h2Loc}>{location}</Text>
-              {/* <FavoriteBtn id={id} /> */}
+              {/* <FavoriteIcon id={id} /> */}
             </View>
           </View>
         )}
@@ -49,6 +51,23 @@ const Faves = ({data}) => {
           <Text style={styles.h2Date}>{timeFormatter(title)}</Text>
         )}
       />
+      <LinearGradient
+        colors={['#9963ea', '#8797D6']}
+        start={{x: 0.0, y: 1.0}}
+        end={{x: 1.0, y: 0.0}}
+        style={sessionStyles.btn}>
+        <Button
+          title={'buttonTitle'}
+          style={sessionStyles.btnText}
+          onPress={() => {
+            if (isFave) {
+              removeFaveSession(item.id);
+            } else {
+              addFaveSession(item.id);
+            }
+          }}
+        />
+      </LinearGradient>
     </View>
   );
 };

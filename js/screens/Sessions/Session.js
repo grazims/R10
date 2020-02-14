@@ -12,13 +12,8 @@ const timeFormatter = time =>
 const Section = ({children, ...props}) => (
   <SafeAreaView {...props}>{children}</SafeAreaView>
 );
-const Session = ({
-  navigation,
-  item,
-  addFaveSession,
-  faveIds,
-  removeFaveSession,
-}) => {
+
+const Session = ({item, addFaveSession, faveIds, removeFaveSession}) => {
   const [openModal, setOpenModal] = useState(false);
 
   const closeModal = () => setOpenModal(false);

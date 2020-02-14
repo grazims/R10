@@ -3,7 +3,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {FavesContext} from './context/FavesContext/FavesContext';
 import {View, TouchableOpacity} from 'react-native';
 
-const FavoriteBtn = ({id, ...props}) => {
+const FavoriteIcon = ({id, ...props}) => {
   const {favorites, addFaveSession, removeFaveSession} = useContext(
     FavesContext,
   );
@@ -25,4 +25,4 @@ const FavoriteBtn = ({id, ...props}) => {
   );
 };
 
-export default FavoriteBtn;
+export default FavoriteIcon;
