@@ -22,7 +22,7 @@ export const typography = {
       fontMain: 'Montserrat',
     },
     android: {
-      fontMain: 'Montserrat-Regular', // for some reason, Android needs this
+      fontMain: 'Montserrat-Regular',
     },
   }),
 };

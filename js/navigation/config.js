@@ -2,10 +2,9 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Header} from 'react-navigation-stack';
 import LinearGradient from 'react-native-linear-gradient';
-
 import {colors, typography} from '../config/styles';
 
-const {mediumGrey, purple, red, white} = colors;
+const {white} = colors;
 
 const GradientHeader = props => (
   <View style={{backgroundColor: 'white', overflow: 'hidden'}}>

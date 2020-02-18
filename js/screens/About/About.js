@@ -5,7 +5,7 @@ import Logo from '../../components/logo';
 import globalStyles from '../globalStyles';
 import Footer from '../../components/Footer';
 
-const About = ({title, desc, data}) => {
+const About = ({data}) => {
   return (
     <ScrollView>
       <View style={globalStyles.container}>

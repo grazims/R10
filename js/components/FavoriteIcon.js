@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {FavesContext} from './context/FavesContext/FavesContext';
-import {View, TouchableOpacity} from 'react-native';
+import {TouchableOpacity} from 'react-native';
 
 const FavoriteIcon = ({id, ...props}) => {
   const {favorites, addFaveSession, removeFaveSession} = useContext(

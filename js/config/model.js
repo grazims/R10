@@ -13,18 +13,14 @@ const storeFave = async sessionId => {
 
     let result = await AsyncStorage.getItem(faveKey);
     return result;
-  } catch (e) {
-    // saving error
-  }
+  } catch (e) {}
 };
 
 const getFaves = async () => {
   try {
     const value = await AsyncStorage.getItem(faveKey);
     return JSON.parse(value);
-  } catch (e) {
-    // error reading value
-  }
+  } catch (e) {}
 };
 
 const removeFave = async sessionId => {
@@ -38,9 +34,7 @@ const removeFave = async sessionId => {
     await AsyncStorage.setItem(faveKey, JSON.stringify(newIds));
     let result = await AsyncStorage.getItem(faveKey);
     return result;
-  } catch (e) {
-    // saving error
-  }
+  } catch (e) {}
 };
 
 export {storeFave, getFaves, removeFave};

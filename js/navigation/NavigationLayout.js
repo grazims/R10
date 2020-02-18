@@ -8,7 +8,6 @@ import MapScreen from '../screens/Map';
 import SessionsScreen from '../screens/Sessions';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {sharedNavigationOptions} from './config';
-
 import {colors} from '../config/styles';
 
 const {mediumGrey, white, black} = colors;
@@ -91,6 +90,7 @@ export default createBottomTabNavigator(
       inactiveBackgroundColor: black,
       style: {
         backgroundColor: black,
+        height: 65,
       },
     },
   },

@@ -52,7 +52,6 @@ class FavesProvider extends Component {
       </FavesContext.Provider>
     );
   }
-  // more code will go here!
 }
 
 export default FavesContext;

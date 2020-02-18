@@ -1,11 +1,8 @@
 import React from 'react';
-import {View, Text, SectionList, Button} from 'react-native';
+import {View, Text, SectionList} from 'react-native';
 import styles from '../Schedule/styles';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {withNavigation} from 'react-navigation';
-import FavoriteIcon from '../../components/FavoriteIcon';
-import LinearGradient from 'react-native-linear-gradient';
-import sessionStyles from '../Sessions/sessionStyles';
 
 const timeFormatter = time =>
   new Date(time).toLocaleString('en-US', {hour: 'numeric', hour12: true});
@@ -58,7 +55,6 @@ const Faves = ({data, navigation}) => {
             </TouchableOpacity>
             <View>
               <Text style={styles.h2Loc}>{location}</Text>
-              {/* <FavoriteIcon id={id} /> */}
             </View>
           </View>
         )}
