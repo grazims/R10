@@ -61,9 +61,8 @@ const Session = ({item, addFaveSession, faveIds, removeFaveSession}) => {
         start={{x: 0.0, y: 1.0}}
         end={{x: 1.0, y: 0.0}}
         style={sessionStyles.btn}>
-        <Button
-          title={buttonTitle}
-          style={sessionStyles.btnText}
+        <Text style={sessionStyles.btnText}>{buttonTitle}</Text>
+        <TouchableOpacity
           onPress={() => {
             if (isFave) {
               removeFaveSession(item.id);

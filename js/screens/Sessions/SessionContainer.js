@@ -5,7 +5,6 @@ import FavesContext from '../../components/context/FavesContext';
 
 const SessionContainer = ({navigation}) => {
   let item = navigation.getParam('item');
-  console.log('item', item);
   return (
     <FavesContext.Consumer>
       {({faveIds, addFaveSession, removeFaveSession}) => {
