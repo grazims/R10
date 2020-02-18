@@ -29,15 +29,31 @@ const sessionGrouper = (headers, session) => {
   return headers;
 };
 
-const Faves = ({data}) => {
+const Faves = ({data, navigation}) => {
+  console.log(data.reduce(sessionGrouper, []));
   return (
     <View>
       <SectionList
         sections={data.reduce(sessionGrouper, [])}
         keyExtractor={({id}) => id}
-        renderItem={({item: {id, title, location}}, i) => (
+        renderItem={(
+          {item: {id, title, location, startTime, description, speaker}},
+          i,
+        ) => (
           <View>
-            <TouchableOpacity onPress={() => navigation.push('Session', {id})}>
+            <TouchableOpacity
+              onPress={() =>
+                navigation.push('Session', {
+                  item: {
+                    id,
+                    title,
+                    location,
+                    startTime,
+                    description,
+                    speaker,
+                  },
+                })
+              }>
               <Text style={styles.titleSche}>{title}</Text>
             </TouchableOpacity>
             <View>
@@ -51,23 +67,6 @@ const Faves = ({data}) => {
           <Text style={styles.h2Date}>{timeFormatter(title)}</Text>
         )}
       />
-      <LinearGradient
-        colors={['#9963ea', '#8797D6']}
-        start={{x: 0.0, y: 1.0}}
-        end={{x: 1.0, y: 0.0}}
-        style={sessionStyles.btn}>
-        <Button
-          title={'buttonTitle'}
-          style={sessionStyles.btnText}
-          onPress={() => {
-            if (isFave) {
-              removeFaveSession(item.id);
-            } else {
-              addFaveSession(item.id);
-            }
-          }}
-        />
-      </LinearGradient>
     </View>
   );
 };

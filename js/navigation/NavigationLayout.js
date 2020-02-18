@@ -50,6 +50,7 @@ const MapStack = createStackNavigator(
 const FavesStack = createStackNavigator(
   {
     Faves: FavesScreen,
+    Session: SessionsScreen,
   },
   {
     defaultNavigationOptions: ({navigation}) => ({
