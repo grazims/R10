@@ -8,8 +8,8 @@ import Footer from '../../components/Footer';
 const About = ({data}) => {
   return (
     <ScrollView>
+      <Logo />
       <View style={globalStyles.container}>
-        <Logo />
         <Text style={globalStyles.h2}>
           R10 is a conference that focuses on just about any topic related to
           dev.
@@ -24,7 +24,6 @@ const About = ({data}) => {
 
       <View style={globalStyles.container}>
         <Text style={globalStyles.title}>Code of Conduct</Text>
-
         <FlatList
           data={data}
           renderItem={({item}) => <ConductItem item={item} />}
@@ -32,6 +31,7 @@ const About = ({data}) => {
         />
         <Footer />
       </View>
+      {/* </View> */}
     </ScrollView>
   );
 };
