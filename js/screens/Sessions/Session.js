@@ -22,6 +22,7 @@ const Session = ({item, addFaveSession, faveIds, removeFaveSession}) => {
 
   const isFave = faveIds.indexOf(item.id) !== -1;
   const buttonTitle = isFave ? 'Remove from Faves' : 'Add to Faves';
+
   return (
     <View style={globalStyles.container}>
       <Text style={styles.h2Loc}>{item.location}</Text>
@@ -61,8 +62,9 @@ const Session = ({item, addFaveSession, faveIds, removeFaveSession}) => {
         start={{x: 0.0, y: 1.0}}
         end={{x: 1.0, y: 0.0}}
         style={sessionStyles.btn}>
-        <Text style={sessionStyles.btnText}>{buttonTitle}</Text>
-        <TouchableOpacity
+        <Button
+          title={buttonTitle}
+          style={sessionStyles.btnText}
           onPress={() => {
             if (isFave) {
               removeFaveSession(item.id);
